@@ -10,22 +10,26 @@
 </head>
 <body>
     <div class="wrapper">
-        <form action="">
+        <form action="{{ route('register') }}" method="post">
+            @csrf
             <h1>Registrate</h1>
             <div class="input-box">
-                <input type="text" placeholder="Nombres" required>
+                <input type="text" placeholder="Nombres" name="name" required>
             </div>
             <div class="input-box">
-                <input type="text" placeholder="Apellidos" required>
+                <input type="text" placeholder="Apellidos" name="lastname" required>
             </div>
             <div class="input-box">
-                <input type="text" placeholder="Usuario" required>
+                <input type="text" placeholder="Usuario" name="user" required>
             </div>
             <div class="input-box">
-                <input type="text" placeholder="Correo" required>
+                <input type="text" placeholder="Correo" name="email" required>
             </div>
             <div class="input-box">
-                <input type="password" placeholder="Contraseña" required>
+                <input type="password" placeholder="Contraseña" name="password" min="6" required>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Confirmar Contraseña" name="password_confirmation" min="6" required>
             </div>
             <button type="submit" class="btn">Register</button>
             <div class="register-link">
@@ -33,5 +37,7 @@
             </div>
         </form>
     </div>
+    <script>
+    </script>
 </body>
 </html>

@@ -1,13 +1,14 @@
 <?php
-
 use Illuminate\Routing\Router;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AuthController::class,'login']);
-Route::post('/login', [AuthController::class,'postLogin']);
+Route::post('/login', [AuthController::class,'postLogin'])->name('login');
 
 Route::get('/register', [AuthController::class,'register']);
-Route::post('/register', [AuthController::class,'postRegister']);
+Route::post('/register', [AuthController::class,'postRegister'])->name('register');
+Route::post('/logout', [AuthController::class,'logout'])->name('logout');
+Route::patch('/profile/update', [AuthController::class,'editProfile'])->name('profile.update');
 
-// Router::get('/inicio', [AuthController::class,'inicio']);
+Route::get('/inicio', [AuthController::class,'inicio'])->middleware('auth');
